@@ -1,0 +1,95 @@
+"""
+pandas
+======
+
+series 
+dataframe
+
+
+pd.read_csv("file_path")
+pd.read_exel("file_path)
+
+inspecting data
+===============
+pd.shape
+pd.column
+pd.head()
+pd.tail()
+pd.info()
+
+null value count
+================
+df.isnull().sum()
+
+selecting columns
+=================
+
+df["name"] => fecth a single column
+
+df[["name","age]]=> fetching multiple column
+
+
+slecting row
+============
+df.loc[0]
+df.iloc[index]
+
+
+Row+column
+=========
+df.loc[0,"name"]
+df.loc[1,["name","age"]]
+
+filtering
+========
+df[df["age"]>18]
+
+df[(df["age]>18)&(df["course"]=="django")]
+
+
+filling missing values
+=======================
+df.fillna(0)
+
+df["age"].fillna(df["age"].mean(),inplace=True)
+
+*Renaming column name
+====================
+
+df.rename(columns={"old":"new"},inplace=True)
+
+*changing data type of column
+============================
+
+df["age"]=df["age"].astype("int")
+
+*Remove Duplicates
+===================
+df.drop_duplicates()
+
+Sorting values
+==============
+
+df.sort_values(by="age",ascending=True)
+
+groupby
+=======
+
+df.groupby("department")["marks"].sum()
+
+Aggregate Functions
+===================
+sum()
+max()
+min()
+mean()
+mode()
+median()
+count()
+
+Joins
+======
+
+
+
+"""
