@@ -63,9 +63,43 @@ reviews_data = [
     {"id": 47, "movie_id": 6, "message": "Setting high expectations for this one.", "rating": 4.0, "owner": "sandalwood_king"},
     {"id": 48, "movie_id": 5, "message": "Great family entertainer for the weekend.", "rating": 4.2, "owner": "family_man"},
     {"id": 49, "movie_id": 1, "message": "Truly an international standard from Kerala.", "rating": 4.9, "owner": "global_malayali"},
-    {"id": 50, "movie_id": 2, "message": "Can't wait for Part 2! That cliffhanger!", "rating": 4.6, "owner": "marv_fan"}
+    {"id": 50, "movie_id": 2, "message": "Can't wait for Part 2! That cliffhanger!", "rating": 4.6, "owner": "marv_fan"},
+    {"id": 51, "movie_id": 20, "message": "That cliffhanger!", "rating": 4.6, "owner": "marv_fan"},
 ]
 
 
+import pandas as pd
+
+movies=pd.DataFrame(movies_data)
+
+reviews=pd.DataFrame(reviews_data)
+
+# print("movi statistics========================")
+# print(movies.columns)
+# print(movies.isnull().sum())
+
+# print("reviews statistics *****************************")
+
+# print(reviews.columns)
+
+# print(reviews.isnull().sum())
+
+# pd.merge(df1,df2,on="column",how="inner")
 
 
+data = pd.merge(movies,reviews,left_on="id",right_on="movie_id",how="inner")
+
+print(data.tail(3))
+
+print("movie_rating count",data["title"].value_counts())
+
+print("avg rating",data.groupby("title")["rating"].mean())
+
+# year-wise movies count
+
+# language-wise movie count
+
+# language-wise review count
+
+print(data["language"].value_counts())
+# language-wise avg rating
